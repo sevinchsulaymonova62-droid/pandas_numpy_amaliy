@@ -80,3 +80,22 @@ print(f"Siqilgan fayl hajmi: {zip_size} bayt")
 print(f"Natija: Fayl hajmi {((original_size - zip_size) / original_size) * 100:.2f}% ga kamaydi.")
 
 
+5 AMALIY MASHG'ULOT
+1-TOPSHIRIQ: Bilimlarni tasvirlash modellariga misollar
+·  Freym (Frame): Ob'ekt haqidagi bilimlarni karkas (shablon) ko'rinishida saqlash.
+Misol: "Avtomobil" freymi: (G'ildiraklar: 4, Dvigatel: bor, Yoqilg'i: Benzin).
+·  Produksion model: "Agar ..., u holda ..." qoidalar to'plami.
+Misol: "AGAR svetofor qizil bo'lsa, UNDA to'xtash kerak".
+·  Mantiqiy model: Predikatlar mantiqi orqali ifodalash.
+Misol: $\forall x (Talaba(x) \rightarrow O'qiydi(x))$ (Barcha talabalar o'qiydi).
+·  Semantik tarmoq: Ob'ektlar va ularning aloqalarini grafik ko'rinishida tasvirlash. 
+Misol: [Olma] --(turi)--> [Meva] --(rangi)--> [Qizil].
+2-TOPSHIRIQ: Masalaning matematik modeli tahlili
+Matematik model — bu real jarayonni formulalar yordamida ifodalashdir. Agar siz yuqorida ma'lumotlarni siqish (zip) kodini yozgan bo'lsangiz, uning matematik tahlili quyidagicha bo'ladi:
+Kiruvchi ma'lumot ($D$): Asl faylning baytlardagi hajmi ($S_{original}$).
+Algoritm ($f$): Siqish funksiyasi (masalan, DEFLATE algoritmi).
+Chiquvchi ma'lumot ($C$): Siqilgan fayl hajmi ($S_{compressed}$).
+Samaradorlik koeffitsienti ($\eta$):
+$$\eta = \frac{S_{original} - S_{compressed}}{S_{original}} \times 100\%$$
+Tahlil: Agar $\eta > 0$ bo'lsa, model samarali hisoblanadi. Ma'lumot qanchalik ko'p takrorlansa, siqish darajasi shunchalik yuqori bo'ladi.
+
