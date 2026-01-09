@@ -99,3 +99,27 @@ Samaradorlik koeffitsienti ($\eta$):
 $$\eta = \frac{S_{original} - S_{compressed}}{S_{original}} \times 100\%$$
 Tahlil: Agar $\eta > 0$ bo'lsa, model samarali hisoblanadi. Ma'lumot qanchalik ko'p takrorlansa, siqish darajasi shunchalik yuqori bo'ladi.
 
+6 amaliy mashg'ulot   
+
+import pandas as pd
+import numpy as np
+
+cars = {
+    "Marka": ["Toyota", "BMW", "Chevrolet", "Mercedes"],
+    "Model": ["Camry", "X5", "Malibu", "E-Class"],
+    "Yil": [2020, 2019, 2021, 2018],
+    "Narx": [30000, 55000, 28000, 60000]
+}
+df_cars = pd.DataFrame(cars)
+print(df_cars)
+# Eng qimmat mashina
+eng_qimmat = df_cars[df_cars["Narx"] == np.max(df_cars["Narx"])]
+print(eng_qimmat)
+
+# 2020 yildan yangi mashinalar
+yangi_mashinalar = df_cars[df_cars["Yil"] >= 2020]
+print(yangi_mashinalar)
+
+# Narxni 10% oshirish
+df_cars["Narx"] = df_cars["Narx"] * 1.10
+print(df_cars)
