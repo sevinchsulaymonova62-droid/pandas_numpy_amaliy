@@ -177,3 +177,57 @@ print(theta)
 print("\nBashorat qilingan natijalar:")
 print(y_pred)
 
+9-Amaliy mashg'ulot
+
+#  Python kodi
+# Mashinali o'qitish algoritmlari misollari
+
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+# 1️⃣ Ma'lumotlar to'plami
+data = load_iris()
+X = data.data
+y = data.target
+
+# 2️⃣ Trening va testga bo'lish
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# 3️⃣ Standartlashtirish (K-NN va SVM uchun)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# ===============================
+# K-NN
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train_scaled, y_train)
+print("K-NN Accuracy:", accuracy_score(y_test, knn.predict(X_test_scaled)))
+
+# Logistic Regression
+log_reg = LogisticRegression(max_iter=200)
+log_reg.fit(X_train_scaled, y_train)
+print("Logistic Regression Accuracy:", accuracy_score(y_test, log_reg.predict(X_test_scaled)))
+
+# SVM
+svm = SVC(kernel='linear')
+svm.fit(X_train_scaled, y_train)
+print("SVM Accuracy:", accuracy_score(y_test, svm.predict(X_test_scaled)))
+
+# Decision Tree
+dt = DecisionTreeClassifier(random_state=42)
+dt.fit(X_train, y_train)
+print("Decision Tree Accuracy:", accuracy_score(y_test, dt.predict(X_test)))
+
+# Random Forest
+rf = RandomForestClassifier(n_estimators=100, random_state=42)
+rf.fit(X_train, y_train)
+print("Random Forest Accuracy:", accuracy_score(y_test, rf.predict(X_test)))
+
