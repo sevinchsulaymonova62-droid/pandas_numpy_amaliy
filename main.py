@@ -153,3 +153,27 @@ new_student = bashorat(75, 70, 80)
 
 print
 
+8-Amaliy mashg'ulot
+import numpy as np
+
+# Kirish ma'lumotlari (x - o‘qish soati)
+x = np.array([1, 2, 3, 4, 5], dtype=float)
+
+# Chiqish natijasi (y - imtihon balli)
+y = np.array([50, 55, 65, 80, 95], dtype=float)
+
+# 1. Polinomial xususiyatlar (1, x, x^2)
+X = np.column_stack((np.ones(len(x)), x, x**2))
+
+# 2. Normal tenglama orqali yechim
+theta = np.linalg.inv(X.T @ X) @ X.T @ y
+
+# 3. Bashorat
+y_pred = X @ theta
+
+print("Polinomial regressiya koeffitsiyentlari:")
+print(theta)
+
+print("\nBashorat qilingan natijalar:")
+print(y_pred)
+
