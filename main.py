@@ -123,3 +123,33 @@ print(yangi_mashinalar)
 # Narxni 10% oshirish
 df_cars["Narx"] = df_cars["Narx"] * 1.10
 print(df_cars)
+
+7-Amaiy mashg'ulot
+import numpy as np
+
+# Ma'lumotlar
+qatnashish = np.array([80, 60, 90, 50, 30, 70, 85, 40])
+oraliq = np.array([75, 55, 88, 45, 35, 65, 90, 40])
+mustaqil = np.array([70, 60, 85, 40, 30, 75, 95, 45])
+natija = np.array([1, 1, 1, 0, 0, 1, 1, 0])  # 1-o‘tdi, 0-o‘tmadi
+
+# Oddiy qoida asosida baholash
+def bashorat(q, o, m):
+    ortacha = (q + o + m) / 3
+    if ortacha >= 60:
+        return 1
+    else:
+        return 0
+
+# Test
+for i in range(len(qatnashish)):
+    print(
+        f"Talaba {i+1}:",
+        "O‘TDI" if bashorat(qatnashish[i], oraliq[i], mustaqil[i]) == 1 else "O‘TMADI"
+    )
+
+# Yangi talaba
+new_student = bashorat(75, 70, 80)
+
+print
+
